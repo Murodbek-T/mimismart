@@ -12,7 +12,7 @@ const Navbar = () => {
           <Image src={`/icons/logo.svg`} alt="logo" width={120} height={32} />
         </Link>
 
-        <div className="flex-center gap-5">
+        <div className="hidden lg:flex justify-center items-center gap-5">
           {navLinks.map(({ id, link, title }) => (
             <Link
               key={id}
@@ -31,15 +31,24 @@ const Navbar = () => {
           />
         </div>
 
-        <Button
-          title="Контакты"
-          isComplex={false}
-          iconSrc="/icons/phone.svg"
-          iconPosition="left"
-          iconH={14}
-          iconW={14}
-          buttonClass="flex-center gap-2 font-semibold border border-gray-200 py-3 px-4 cursor-pointer text-[13px]"
-        />
+        <div className="flex-center gap-5">
+          <Button
+            title="Контакты"
+            isComplex={false}
+            iconSrc="/icons/phone.svg"
+            iconPosition="left"
+            iconH={14}
+            iconW={14}
+            buttonClass="flex-center gap-2 font-semibold border border-gray-200 py-3 px-4 cursor-pointer text-[13px]"
+          />
+          <Image
+            src={`/icons/menu.svg`}
+            alt="menu"
+            width={24}
+            height={24}
+            className="cursor-pointer block md:hidden"
+          />
+        </div>
       </div>
     </nav>
   );
