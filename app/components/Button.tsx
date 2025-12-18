@@ -65,9 +65,9 @@ const Button = ({
       >
         <div
           ref={shadowRef}
-          className={`absolute rounded-full pointer-events-none z-1 top-0 left-0`}
+          className={`absolute rounded-full pointer-events-none z-0 top-0 left-0`}
           style={{
-            boxShadow: `0 0 50px 30px ${hoverColor}`,
+            boxShadow: `0 0 20px 30px ${hoverColor}`,
             borderRadius: "999px",
             backdropFilter: "blur(5px)",
           }}
@@ -85,7 +85,7 @@ const Button = ({
   }
 
   return (
-    <button className={`${buttonClass} rounded-full cursor-pointer relative`}>
+    <button className={`${buttonClass} rounded-full cursor-pointer relative `}>
       {iconSrc && iconPosition === "left" && (
         <Image src={iconSrc} alt="icon" width={iconW} height={iconH} />
       )}

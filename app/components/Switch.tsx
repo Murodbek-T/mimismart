@@ -1,10 +1,30 @@
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Switch = () => {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  const handleThemeChange = () => {
+    setTheme(theme == "light" ? "dark" : "light");
+  };
+
   return (
     <StyledWrapper>
       <div className="toggle-border">
-        <input id="one" type="checkbox" />
+        <input
+          id="one"
+          type="checkbox"
+          onChange={handleThemeChange}
+          checked={theme === "dark"}
+        />
         <label htmlFor="one">
           <div className="handle">
             <div className="dot"></div>
@@ -94,13 +114,11 @@ const StyledWrapper = styled.div`
         white 100%
       );
     border-radius: 50%;
-    box-shadow: -30px 0px 20px 5px #fffa;
     transition: left 0.4s;
   }
 
   .toggle-border input[type="checkbox"]:checked + label > .handle {
     left: calc(100% - 39px + 10px);
-    box-shadow: 30px 0px 20px 5px #fffa;
   }
   .toggle-border input[type="checkbox"]:checked + label > .handle > .dot {
     background: rgba(30, 176, 47, 1);
